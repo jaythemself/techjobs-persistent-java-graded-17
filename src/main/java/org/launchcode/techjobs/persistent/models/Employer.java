@@ -1,10 +1,15 @@
 package org.launchcode.techjobs.persistent.models;
 
 import jakarta.persistence.Entity;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.OneToMany;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Size;
 
-    // Task 2.2.2 Employer class will be mapped to one of our tables. @Entity annotation
+import java.util.ArrayList;
+import java.util.List;
+
+// Task 2.2.2 Employer class will be mapped to one of our tables. @Entity annotation
 @Entity
 public class Employer extends AbstractEntity {
 
@@ -13,6 +18,14 @@ public class Employer extends AbstractEntity {
     @NotBlank(message = "This field must be filled out.")
     @Size(min = 1, max = 100, message = "Must contain between 1-100 characters.")
     private String location;
+
+    // Task 3.1: Add jobs Field to Employer
+    // 1. Add a private property jobs of type List<Job> and initialize it to an empty ArrayList.
+    // After we set up Job class to work with Employer objects, this list will represent the list of all items in a given job.
+    // 2. Use the @OneToMany and @JoinColumn annotations on the jobs list in Employer to declare the relationship between data tables.
+    @OneToMany
+    @JoinColumn(name = "employer_id")
+    private List<Job> jobs = new ArrayList<>();
 
     // Task 2.2.2 Make sure Employer has a no-arg constructor required for Hibernate to create an object.
     public Employer() {}
