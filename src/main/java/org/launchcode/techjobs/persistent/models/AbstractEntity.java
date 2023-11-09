@@ -17,6 +17,9 @@ public abstract class AbstractEntity {
     @GeneratedValue
     private int id;
 
+    // Task 2.1.3 Each subclass will also inherit the name field from AbstractEntity. Add validation annotations so that
+    // the field cannot be left blank and there are reasonable limitations on the size of the name string.
+    // Keep in mind this is shared across Job, Employer, and Skill classes and some employer names may be longer than 50 chars.
     @NotBlank(message = "This field must be filled out.")
     @Size(min = 1, max = 100, message = "Must contain between 1-100 characters.")
     private String name;
