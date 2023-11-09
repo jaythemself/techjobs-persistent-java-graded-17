@@ -23,3 +23,6 @@ public class Skill extends AbstractEntity {
     }
 
 }
+
+// Task 4.1
+// In Skill, add a jobs field. Add a getter and setter for the field. Annotate @ManyToMany with an arg mappedBy="skills"

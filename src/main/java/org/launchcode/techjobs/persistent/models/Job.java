@@ -49,3 +49,8 @@ public class Job extends AbstractEntity {
     }
 
 }
+
+// Task 4.2
+// Update Job model class to fit its m2m relationship with skills
+// Job.skills already exists. What needs to change/be added to map this relationship?
+// Check the whole class for any necessary updates

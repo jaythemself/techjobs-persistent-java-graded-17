@@ -53,3 +53,8 @@ public class ListController {
         return "list-jobs";
     }
 }
+
+// Task 4.4
+// Add fields for EmployerRepository and SkillRepository, both @Autowired
+// Pass the employer and skill data from those repos into the view template rendered at list/
+// Add the right model.addAttrib(name, value) statements to pass this info into templates/list.html

@@ -78,3 +78,14 @@ public class HomeController {
     }
 
 }
+
+// Task 4.3
+// You need to wire HomeController wiht the skills data in order to add skills objects to a new job. This will look almost
+// precisely like what was done for employer data above (4.1-2)
+// Difference: job form being processed only accepts one employer by an id field. Many skills can be added to a single job.
+// The code for the view has already been written. Look in templates/add.html. Form-group section iterates over abailable skills
+// data and renders a checkbox for each skill. Each checkbox contains attribute name="skills". Pass that value to
+// processAddJobForm as a @RequestParam (@RequestParam List<Integer> skills)
+// Then, to get the skills data from a list of ids (rather than a single id) use CrudRepo method .findAllById(ids)
+// (List<Skill> skillObjs = (List<Skill>) skillRepository.findAllById(skills); \n newJob.setSkills(skillObjs);)
+// Uncomment testtaskfour and check
