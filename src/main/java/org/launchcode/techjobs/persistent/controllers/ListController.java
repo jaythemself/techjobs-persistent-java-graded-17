@@ -1,7 +1,11 @@
 package org.launchcode.techjobs.persistent.controllers;
 
+import org.launchcode.techjobs.persistent.models.Employer;
 import org.launchcode.techjobs.persistent.models.Job;
+import org.launchcode.techjobs.persistent.models.Skill;
+import org.launchcode.techjobs.persistent.models.data.EmployerRepository;
 import org.launchcode.techjobs.persistent.models.data.JobRepository;
+import org.launchcode.techjobs.persistent.models.data.SkillRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -11,6 +15,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.launchcode.techjobs.persistent.models.JobData;
 
 import java.util.HashMap;
+import java.util.List;
 
 /**
  * Created by LaunchCode
@@ -22,6 +27,13 @@ public class ListController {
     @Autowired
     private JobRepository jobRepository;
 
+    // Task 4.4.1 Add fields for EmployerRepository and SkillRepository, both @Autowired
+    @Autowired
+    private EmployerRepository employerRepository;
+
+    @Autowired
+    private SkillRepository skillRepository;
+
     static HashMap<String, String> columnChoices = new HashMap<>();
 
     public ListController () {
@@ -32,8 +44,13 @@ public class ListController {
 
     }
 
+    // Task 4.4.2 Pass the employer and skill data from those repos into the view template rendered at list/
+    // Task 4.4.3 Add the right model.addAttrib(name, value) statements to pass this info into templates/list.html
     @RequestMapping("")
     public String list(Model model) {
+        List<Employer> employers = (List<Employer>) employerRepository.findAll();
+        model.addAttribute("employers", employerRepository.findAll());
+        model.addAttribute("skills", skillRepository.findAll());
 
         return "list";
     }
@@ -53,8 +70,3 @@ public class ListController {
         return "list-jobs";
     }
 }
-
-// Task 4.4
-// Add fields for EmployerRepository and SkillRepository, both @Autowired
-// Pass the employer and skill data from those repos into the view template rendered at list/
-// Add the right model.addAttrib(name, value) statements to pass this info into templates/list.html

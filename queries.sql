@@ -14,3 +14,8 @@ DROP TABLE job;
 
 -- Task 4.5 write query to return the names of all skills that are attached to jobs in alphabetical order
 -- If a skill does not have a job listed, it should not be included in the results of this query.
+SELECT * FROM skill
+LEFT JOIN job_skills
+ON skill.id = job_skills.skills_id
+WHERE job_skills.jobs_id IS NOT NULL
+ORDER BY name ASC
