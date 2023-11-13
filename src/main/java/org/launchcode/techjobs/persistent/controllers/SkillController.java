@@ -12,7 +12,6 @@ import org.springframework.web.bind.annotation.*;
 import java.util.Optional;
 
 // Task 2.4.5 create SkillController class identical to EmployerController class.
-// Must import into TestTaskTwo.
 @Controller
 @RequestMapping("skills")
 public class SkillController {
@@ -69,5 +68,3 @@ public class SkillController {
     }
 
 }
-
-// 2.4.6. Test it with SQL (reference textbook and demo app again for this section)
