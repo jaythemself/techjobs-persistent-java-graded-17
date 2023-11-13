@@ -29,6 +29,8 @@ public class Employer extends AbstractEntity {
 
     // Task 2.2.2 Make sure Employer has a no-arg constructor required for Hibernate to create an object.
     public Employer() {}
+    //when initially setting employer, updating later would be setter
+    public Employer(String location) { this.location = location; }
 
     // Task 2.2.1 Add public accessor methods (getter methods) to Employer. (test also looks for setter so. not just accessor method.)
     // For the purposes of this application an employer can only have one location.

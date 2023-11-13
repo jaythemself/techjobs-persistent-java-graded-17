@@ -14,7 +14,6 @@ public class Skill extends AbstractEntity {
 
     // Task 4.1 In Skill, add a jobs field. Add a getter and setter for the field. Annotate @ManyToMany with an arg mappedBy="skills"
     @ManyToMany(mappedBy = "skills")
-    //@JoinColumn(name = "skills_id")
     private List<Job> jobs = new ArrayList<>();
 
     // Task 2.2.3 Add a field for a longer description of the skill, named description.
