@@ -1,6 +1,7 @@
 package org.launchcode.techjobs.persistent.models;
 
 import jakarta.persistence.Entity;
+import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToMany;
 import jakarta.persistence.ManyToOne;
 
@@ -21,13 +22,14 @@ public class Job extends AbstractEntity {
 
     // Task 4.2 Update Job model class to fit its ManyToMany relationship with skills
     @ManyToMany
+    @JoinColumn(name = "skills_id")
     private List<Skill> skills = new ArrayList<>();
     public Job() {
     }
 
     // Initialize the id and value fields.
     public Job(Employer anEmployer, List<Skill> someSkills) {
-        //super();?
+        //super();
         this.employer = anEmployer;
         this.skills = someSkills;
     }
